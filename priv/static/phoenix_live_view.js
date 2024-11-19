@@ -5455,7 +5455,7 @@ removing illegal node: "${(childNode.outerHTML || childNode.nodeValue).trim()}"
           }
           let phxChange = this.binding("change");
           let input = e.target;
-          if (e.isComposing) {
+          if (window.safari !== void 0 && e.isComposing) {
             const key = `composition-listener-${type}`;
             if (!dom_default.private(input, key)) {
               dom_default.putPrivate(input, key, true);
