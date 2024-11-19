@@ -856,7 +856,7 @@ export default class LiveSocket {
         // https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/isComposing
         // Safari has issues if the input is updated while composing
         // see https://github.com/phoenixframework/phoenix_live_view/issues/3322
-        if(e.isComposing){
+        if(window.safari !== undefined && e.isComposing){
           const key = `composition-listener-${type}`
           if(!DOM.private(input, key)){
             DOM.putPrivate(input, key, true)
